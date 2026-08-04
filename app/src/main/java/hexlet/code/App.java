@@ -36,9 +36,9 @@ public class App {
 
         if (menuPoint.equals(greetPoint)) {
             greetInterface();
-        } else if (menuPoint.equals(evenGamePoint)) {
+        } else if (menuPoint.equals(evenGamePoint) || menuPoint.equals(calcGamePoint)) {
             greetInterface();
-            evenGame();
+            star(menuPoint);
         } else {
             System.exit(0);
         }
@@ -57,11 +57,11 @@ public class App {
         IO.println("Hello, " + getName() + "!");
     }
 
-    private void evenGame() {
-        var evenGame = new EvenGame(sc, name);
+    private void star(String menuPoint) {
+        var engine = new Engine(sc, name, menuPoint);
 
-        evenGame.startGame();
-        evenGame.getAnswerToFinishedGame();
+        engine.startGame();
+        engine.getAnswerToFinishedGame();
     }
 
 }

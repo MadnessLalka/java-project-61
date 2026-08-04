@@ -3,15 +3,31 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class EvenGame implements Game {
-    private final Random random;
-    private final int minRand;
-    private final int maxRand;
+    private Random random;
+    private int minRand;
+    private int maxRand;
 
-    public EvenGame(Random random, int minRand, int maxRand) {
+    public void setRandom(Random random) {
         this.random = random;
+    }
+
+    public void setMinRand(int minRand) {
         this.minRand = minRand;
+    }
+
+    public void setMaxRand(int maxRand) {
         this.maxRand = maxRand;
     }
+
+    public EvenGame() {
+    }
+
+
+    //    public EvenGame(Random random, int minRand, int maxRand) {
+//        this.random = random;
+//        this.minRand = minRand;
+//        this.maxRand = maxRand;
+//    }
 
     @Override
     public String getDescription() {

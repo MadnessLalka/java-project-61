@@ -1,6 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.Game;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class Engine {
     private final int COUNT_GAME = 3;
@@ -12,31 +17,18 @@ public class Engine {
     private final String falseAnswer;
 
 
-    public Engine(String trueAnswer, String falseAnswer) {
+    public Engine(Scanner sc, String trueAnswer, String falseAnswer) {
         this.trueAnswer = trueAnswer;
         this.falseAnswer = falseAnswer;
     }
 
-    public int getCOUNT_GAME() {
-        return COUNT_GAME;
-    }
-
-    public Random getRand() {
-        return rand;
-    }
-
-    public int getMinRand() {
-        return minRand;
-    }
-
-    public int getMaxRand() {
-        return maxRand;
-    }
-
     public void startGame() {
-        var evenEngine = new Engine();
 
-        IO.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
+
+//        IO.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
+
 
         for (var i = 0; i < evenEngine.getCOUNT_GAME(); i++) {
             var randNumber = evenEngine.getRand().nextInt(
@@ -49,26 +41,39 @@ public class Engine {
 
             IO.println(answer);
 
-            if (randNumber % 2 == 0 && answer.equals("yes") || randNumber % 2 != 0 && answer.equals("no")) {
-                isPlayerWin = true;
-                IO.println("Correct!");
-            } else {
-                isPlayerWin = false;
-                System.out.printf("'yes' is wrong answer ;(. Correct answer was 'no'.\n" + "Let's try again, %s!"
-                        , name
-                );
-            }
+//            if (randNumber % 2 == 0 && answer.equals("yes") || randNumber % 2 != 0 && answer.equals("no")) {
+//                isPlayerWin = true;
+//                IO.println("Correct!");
+//            } else {
+//                isPlayerWin = false;
+//                System.out.printf("'yes' is wrong answer ;(. Correct answer was 'no'.\n" + "Let's try again, %s!"
+//                        , name
+//                );
+//            }
 
             IO.println();
 
         }
     }
 
-    @Override
     public void getAnswerToFinishedGame() {
         if (isPlayerWin) {
             IO.println("Congratulations, " + name + "!");
         }
+    }
+
+    private Game getChoisenGame(String gameId) throws UnknownGameException {
+       var gameObject = switch (gameId){
+            case "1" -> new EvenGame();
+            case "2" -> new CalcGame();
+           default -> throw new UnknownGameException("Unknown game");
+        };
+
+       gameObject.setRandom(rand);
+       gameObject.setMaxRand(maxRand);
+       gameObject.setMaxRand(minRand);
+
+       return gameObject;
     }
 
 
