@@ -1,55 +1,42 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
-import java.util.Scanner;
+import java.util.Random;
 
 public class EvenGame implements Game {
-    private final Scanner sc;
-    private final String name;
-    private boolean isPlayerWin = false;
+    private final Random random;
+    private final int minRand;
+    private final int maxRand;
 
-    public EvenGame(Scanner sc, String name) {
-        this.sc = sc;
-        this.name = name;
+    public EvenGame(Random random, int minRand, int maxRand) {
+        this.random = random;
+        this.minRand = minRand;
+        this.maxRand = maxRand;
     }
 
     @Override
-    public void startGame() {
-        var evenEngine = new Engine();
-
-        IO.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        for (var i = 0; i < evenEngine.getCOUNT_GAME(); i++) {
-            var randNumber = evenEngine.getRand().nextInt(
-                    (evenEngine.getMaxRand() - evenEngine.getMinRand()) + 1);
-
-            IO.println("Question: " + randNumber);
-            IO.print("Your answer: ");
-
-            var answer = sc.next();
-
-            IO.println(answer);
-
-            if (randNumber % 2 == 0 && answer.equals("yes") || randNumber % 2 != 0 && answer.equals("no")) {
-                isPlayerWin = true;
-                IO.println("Correct!");
-            } else {
-                isPlayerWin = false;
-                System.out.printf("'yes' is wrong answer ;(. Correct answer was 'no'.\n" + "Let's try again, %s!"
-                        , name
-                );
-            }
-
-            IO.println();
-
-        }
+    public String getDescription() {
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     @Override
-    public void getAnswerToFinishedGame() {
-        if (isPlayerWin) {
-            IO.println("Congratulations, " + name + "!");
+    public String getQuestion() {
+        var randNumber = random.nextInt(
+                (maxRand - minRand) + 1);
+
+        return String.valueOf(randNumber);
+    }
+
+    @Override
+    public String getAnswer() {
+        if (Integer.parseInt(getQuestion()) % 2 == 0) {
+            return "yes";
         }
+
+        return "no";
+    }
+
+    @Override
+    public String getGameCode() {
+        return "1";
     }
 }

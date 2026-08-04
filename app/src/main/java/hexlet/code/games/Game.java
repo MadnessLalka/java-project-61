@@ -1,7 +1,10 @@
 package hexlet.code.games;
 
-public interface Game {
-    void startGame();
+import java.util.Random;
 
-    void getAnswerToFinishedGame();
+public interface Game {
+    String getDescription();
+    String getGameCode();
+    String getAnswer();
+    String getQuestion();
 }
