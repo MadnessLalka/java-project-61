@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import hexlet.code.games.EvenGame;
+
 import java.util.Scanner;
 
 public class App {
@@ -15,6 +17,10 @@ public class App {
     }
 
     private void startGame() {
+        var greetPoint = "1";
+        var evenGamePoint = "2";
+        var calcGamePoint = "3";
+
         var menuPoint = "";
 
         var startMenu = """
@@ -28,9 +34,9 @@ public class App {
 
         menuPoint = sc.next();
 
-        if (menuPoint.equals("1")) {
+        if (menuPoint.equals(greetPoint)) {
             greetInterface();
-        } else if (menuPoint.equals("2")) {
+        } else if (menuPoint.equals(evenGamePoint)) {
             greetInterface();
             evenGame();
         } else {

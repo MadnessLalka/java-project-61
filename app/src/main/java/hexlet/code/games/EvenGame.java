@@ -1,14 +1,13 @@
-package hexlet.code;
+package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class EvenGame implements Game {
     private final Scanner sc;
     private final String name;
     private boolean isPlayerWin = false;
-    private static final int COUNT_GAME = 3;
-    private final Random rand = new Random();
 
     public EvenGame(Scanner sc, String name) {
         this.sc = sc;
@@ -17,13 +16,13 @@ public class EvenGame implements Game {
 
     @Override
     public void startGame() {
-        var minRand = -10;
-        var maxRand = 10;
+        var evenEngine = new Engine();
 
         IO.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        for (var i = 0; i < COUNT_GAME; i++) {
-            var randNumber = rand.nextInt((maxRand - minRand) + 1);
+        for (var i = 0; i < evenEngine.getCOUNT_GAME(); i++) {
+            var randNumber = evenEngine.getRand().nextInt(
+                    (evenEngine.getMaxRand() - evenEngine.getMinRand()) + 1);
 
             IO.println("Question: " + randNumber);
             IO.print("Your answer: ");
