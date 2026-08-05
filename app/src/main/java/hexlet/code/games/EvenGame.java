@@ -6,6 +6,7 @@ public class EvenGame implements Game {
     private Random random;
     private int minRand;
     private int maxRand;
+    private int randNumber;
 
     public void setRandom(Random random) {
         this.random = random;
@@ -29,14 +30,14 @@ public class EvenGame implements Game {
 
     @Override
     public String getQuestion() {
-        var randNumber = random.nextInt(
+        randNumber = random.nextInt(
                 (maxRand - minRand) + 1);
 
         return String.valueOf(randNumber);
     }
 
-    @Override
-    public String getAnswer(int randNumber) {
+
+    public String getAnswer() {
         if (randNumber % 2 == 0) {
             return "yes";
         }

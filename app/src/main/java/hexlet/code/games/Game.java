@@ -7,7 +7,7 @@ public interface Game {
 
     String getGameCode();
 
-    String getAnswer(int randNumber);
+    String getAnswer();
 
     String getQuestion();
 

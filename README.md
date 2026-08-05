@@ -3,3 +3,6 @@
 
 ### Link for asciinema
 [CLICK!](https://asciinema.org/a/bbfLvrZl7c2y65wb)
+
+### Calc Pic
+![img.png](img.png)

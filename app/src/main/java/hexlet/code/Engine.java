@@ -8,10 +8,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private final int COUNT_GAME = 3;
+    private final int countGame = 3;
     private final Random rand = new Random();
-    private final int MIN_RAND = -10;
-    private final int MAX_RAND = 10;
+    private final int minRand = -10;
+    private final int maxRand = 10;
 
     private final Scanner sc;
     private final String name;
@@ -29,18 +29,17 @@ public class Engine {
 
         IO.println(gameObject.getDescription());
 
-        for (var i = 0; i < COUNT_GAME; i++) {
-            int questNumb = Integer.parseInt(gameObject.getQuestion());
+        for (var i = 0; i < countGame; i++) {
+            var questNumb = gameObject.getQuestion();
 
             IO.println("Question: " + questNumb);
             IO.print("Your answer: ");
 
             String answer = sc.next();
 
-            var answerToQuestion = gameObject.getAnswer(questNumb);
+            var answerToQuestion = gameObject.getAnswer();
 
             IO.println();
-            IO.println(answerToQuestion);
 
             if (answer.trim().equals(answerToQuestion)) {
                 correctAnswerCount++;
@@ -50,7 +49,7 @@ public class Engine {
             }
         }
 
-        if (correctAnswerCount == COUNT_GAME) {
+        if (correctAnswerCount == countGame) {
             IO.println("Congratulations, " + name);
         }
 
@@ -60,12 +59,12 @@ public class Engine {
         var gameObject = switch (gameId) {
             case "2" -> new EvenGame();
             case "3" -> new CalcGame();
-            default -> throw new UnknownGameException("Unknown Game!");
+            default -> throw new UnknownObjectException("Unknown Game!");
         };
 
         gameObject.setRandom(rand);
-        gameObject.setMaxRand(MAX_RAND);
-        gameObject.setMinRand(MIN_RAND);
+        gameObject.setMaxRand(maxRand);
+        gameObject.setMinRand(minRand);
 
         return gameObject;
     }
