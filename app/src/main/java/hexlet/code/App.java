@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.EvenGame;
-
 import java.util.Scanner;
 
 public class App {
@@ -61,8 +59,6 @@ public class App {
         var engine = new Engine(sc, name, menuPoint);
 
         engine.startGame();
-        engine.getAnswerToFinishedGame();
     }
-
 }
 

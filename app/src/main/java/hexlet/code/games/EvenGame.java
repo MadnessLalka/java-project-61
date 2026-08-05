@@ -22,13 +22,6 @@ public class EvenGame implements Game {
     public EvenGame() {
     }
 
-
-    //    public EvenGame(Random random, int minRand, int maxRand) {
-//        this.random = random;
-//        this.minRand = minRand;
-//        this.maxRand = maxRand;
-//    }
-
     @Override
     public String getDescription() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
@@ -46,9 +39,10 @@ public class EvenGame implements Game {
     public String getAnswer() {
         if (Integer.parseInt(getQuestion()) % 2 == 0) {
             return "yes";
+        } else if (Integer.parseInt(getQuestion()) % 2 != 0) {
+            return "no";
         }
-
-        return "no";
+        return "";
     }
 
     @Override

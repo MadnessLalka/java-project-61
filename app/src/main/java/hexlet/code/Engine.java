@@ -10,70 +10,60 @@ import java.util.Scanner;
 public class Engine {
     private final int COUNT_GAME = 3;
     private final Random rand = new Random();
-    private final int minRand = -10;
-    private final int maxRand = 10;
+    private final int MIN_RAND = -10;
+    private final int MAX_RAND = 10;
 
-    private final String trueAnswer;
-    private final String falseAnswer;
+    private final Scanner sc;
+    private final String name;
+    private final String gameID;
 
-
-    public Engine(Scanner sc, String trueAnswer, String falseAnswer) {
-        this.trueAnswer = trueAnswer;
-        this.falseAnswer = falseAnswer;
+    public Engine(Scanner sc, String name, String gameID) {
+        this.sc = sc;
+        this.name = name;
+        this.gameID = gameID;
     }
 
     public void startGame() {
+        var gameObject = getChoisenGame(gameID);
+        var correctAnswerCount = 0;
 
+        IO.println(gameObject.getDescription());
 
-
-//        IO.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-
-
-        for (var i = 0; i < evenEngine.getCOUNT_GAME(); i++) {
-            var randNumber = evenEngine.getRand().nextInt(
-                    (evenEngine.getMaxRand() - evenEngine.getMinRand()) + 1);
-
-            IO.println("Question: " + randNumber);
+        for (var i = 0; i < COUNT_GAME; i++) {
+            IO.println("Question: " + gameObject.getQuestion());
             IO.print("Your answer: ");
 
-            var answer = sc.next();
-
-            IO.println(answer);
-
-//            if (randNumber % 2 == 0 && answer.equals("yes") || randNumber % 2 != 0 && answer.equals("no")) {
-//                isPlayerWin = true;
-//                IO.println("Correct!");
-//            } else {
-//                isPlayerWin = false;
-//                System.out.printf("'yes' is wrong answer ;(. Correct answer was 'no'.\n" + "Let's try again, %s!"
-//                        , name
-//                );
-//            }
+            String answer = sc.next();
 
             IO.println();
+            IO.println(gameObject.getAnswer());
 
+            if (answer.contains(gameObject.getAnswer())) {
+                correctAnswerCount++;
+                IO.println("Correct!");
+            } else {
+                IO.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + gameObject.getAnswer() + "'.");
+            }
         }
+
+        if (correctAnswerCount == COUNT_GAME) {
+            IO.println("Congratulations, " + name);
+        }
+
     }
 
-    public void getAnswerToFinishedGame() {
-        if (isPlayerWin) {
-            IO.println("Congratulations, " + name + "!");
-        }
-    }
-
-    private Game getChoisenGame(String gameId) throws UnknownGameException {
-       var gameObject = switch (gameId){
-            case "1" -> new EvenGame();
-            case "2" -> new CalcGame();
-           default -> throw new UnknownGameException("Unknown game");
+    private Game getChoisenGame(String gameId) {
+        var gameObject = switch (gameId) {
+            case "2" -> new EvenGame();
+            case "3" -> new CalcGame();
+            default -> throw new UnknownGameException("Unknown Game!");
         };
 
-       gameObject.setRandom(rand);
-       gameObject.setMaxRand(maxRand);
-       gameObject.setMaxRand(minRand);
+        gameObject.setRandom(rand);
+        gameObject.setMaxRand(MAX_RAND);
+        gameObject.setMinRand(MIN_RAND);
 
-       return gameObject;
+        return gameObject;
     }
 
 
