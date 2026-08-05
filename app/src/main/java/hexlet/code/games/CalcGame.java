@@ -14,7 +14,7 @@ public class CalcGame implements Game {
     }
 
     @Override
-    public String getAnswer() {
+    public String getAnswer(int Number) {
         return "";
     }
 

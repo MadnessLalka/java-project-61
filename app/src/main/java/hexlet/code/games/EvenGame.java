@@ -36,13 +36,11 @@ public class EvenGame implements Game {
     }
 
     @Override
-    public String getAnswer() {
-        if (Integer.parseInt(getQuestion()) % 2 == 0) {
+    public String getAnswer(int randNumber) {
+        if (randNumber % 2 == 0) {
             return "yes";
-        } else if (Integer.parseInt(getQuestion()) % 2 != 0) {
-            return "no";
         }
-        return "";
+        return "no";
     }
 
     @Override
