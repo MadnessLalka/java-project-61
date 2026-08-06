@@ -25,30 +25,30 @@ public class Engine {
         var gameObject = getChoisenGame(gameID);
         var correctAnswerCount = 0;
 
-        IO.println(gameObject.getDescription());
+        System.out.println(gameObject.getDescription());
 
         for (var i = 0; i < countGame; i++) {
             var questNumb = gameObject.getQuestion();
 
-            IO.println("Question: " + questNumb);
-            IO.print("Your answer: ");
+            System.out.println("Question: " + questNumb);
+            System.out.print("Your answer: ");
 
             String answer = sc.next();
 
             var answerToQuestion = gameObject.getAnswer();
 
-            IO.println();
+            System.out.println();
 
             if (answer.trim().equals(answerToQuestion)) {
                 correctAnswerCount++;
-                IO.println("Correct!");
+                System.out.println("Correct!");
             } else {
-                IO.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + answerToQuestion + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + answerToQuestion + "'.");
             }
         }
 
         if (correctAnswerCount == countGame) {
-            IO.println("Congratulations, " + name);
+            System.out.println("Congratulations, " + name);
         }
 
     }

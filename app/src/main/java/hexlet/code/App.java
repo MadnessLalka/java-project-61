@@ -35,7 +35,7 @@ public class App {
                 0 - Exit
                 """;
 
-        IO.println(startMenu);
+        System.out.println(startMenu);
 
         menuPoint = sc.next();
 
@@ -57,11 +57,11 @@ public class App {
                 May I have your name?
                 """;
 
-        IO.print(startMenu);
+        System.out.print(startMenu);
 
         name = sc.next();
 
-        IO.println("Hello, " + getName() + "!");
+        System.out.println("Hello, " + getName() + "!");
     }
 
     private void star(String menuPoint) {

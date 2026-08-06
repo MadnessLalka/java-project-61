@@ -30,13 +30,12 @@ public class CalcGame implements Game {
         b = random.nextInt((maxRand - minRand) + 1);
 
         operationRandNumber = random.nextInt(operationCount);
-        System.out.println(operationRandNumber);
-        return a + " " + getAretmeticOperation(operationRandNumber) + " " + b;
+        return a + " " + getArithmeticOperation(operationRandNumber) + " " + b;
     }
 
     @Override
     public String getAnswer() {
-        switch (getAretmeticOperation(operationRandNumber)) {
+        switch (getArithmeticOperation(operationRandNumber)) {
             case "+" -> {
                 return String.valueOf(a + b);
             }
@@ -66,7 +65,7 @@ public class CalcGame implements Game {
         this.maxRand = maxRand;
     }
 
-    private String getAretmeticOperation(int randArithmeticNumb) {
+    private String getArithmeticOperation(int randArithmeticNumb) {
         switch (randArithmeticNumb) {
             case 0 -> {
                 return "+";
