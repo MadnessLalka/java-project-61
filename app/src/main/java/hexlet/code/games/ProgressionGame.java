@@ -27,7 +27,7 @@ public class ProgressionGame implements Game {
     @Override
     public String getQuestion() {
         var countNumberProgression = 10;
-        var minNumberProgression = 5;
+        var minNumberProgression = 6;
         var randomCountProgression = random.nextInt(countNumberProgression) + minNumberProgression;
         var randStep = random.nextInt(4) + 1;
         var randomNumberStart = random.nextInt(maxRand - minRand) + 1;
