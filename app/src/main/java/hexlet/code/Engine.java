@@ -23,7 +23,6 @@ public class Engine {
 
     public void startGame() {
         var gameObject = getChoisenGame(gameID);
-        var correctAnswerCount = 0;
 
         System.out.println(gameObject.getDescription());
 
@@ -40,16 +39,17 @@ public class Engine {
             System.out.println();
 
             if (answer.trim().equals(answerToQuestion)) {
-                correctAnswerCount++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + answerToQuestion + "'.");
+                System.out.println("Let's try again, " + name + "!");
+                System.exit(0);
             }
         }
 
-        if (correctAnswerCount == countGame) {
-            System.out.println("Congratulations, " + name + "!");
-        }
+
+        System.out.println("Congratulations, " + name + "!");
+
 
     }
 
