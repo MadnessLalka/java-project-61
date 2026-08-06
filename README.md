@@ -6,3 +6,6 @@
 
 ### Calc Pic
 ![img.png](img.png)
+
+### GCD Pic
+![img1.png](img.png)
