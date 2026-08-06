@@ -49,7 +49,7 @@ public class ProgressionGame implements Game {
             a[i] = randNumber;
         }
 
-        return progression.toString();
+        return progression.substring(1, progression.length());
 
     }
 
