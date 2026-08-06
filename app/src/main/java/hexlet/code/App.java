@@ -10,7 +10,7 @@ public class App {
         return name;
     }
 
-    void main() {
+    void main(String[] args) {
         startGame();
     }
 
