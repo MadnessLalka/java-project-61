@@ -48,7 +48,7 @@ public class Engine {
         }
 
         if (correctAnswerCount == countGame) {
-            System.out.println("Congratulations, " + name);
+            System.out.println("Congratulations, " + name + "!");
         }
 
     }
