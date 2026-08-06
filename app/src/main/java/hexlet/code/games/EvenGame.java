@@ -20,9 +20,6 @@ public class EvenGame implements Game {
         this.maxRand = maxRand;
     }
 
-    public EvenGame() {
-    }
-
     @Override
     public String getDescription() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";

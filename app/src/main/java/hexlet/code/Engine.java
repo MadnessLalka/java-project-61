@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
 import hexlet.code.games.Game;
 
 import java.util.Random;
@@ -59,6 +60,7 @@ public class Engine {
         var gameObject = switch (gameId) {
             case "2" -> new EvenGame();
             case "3" -> new CalcGame();
+            case "4" -> new GCDGame();
             default -> throw new UnknownObjectException("Unknown Game!");
         };
 

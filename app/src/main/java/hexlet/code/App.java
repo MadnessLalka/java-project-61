@@ -18,6 +18,7 @@ public class App {
         var greetPoint = "1";
         var evenGamePoint = "2";
         var calcGamePoint = "3";
+        var gCDGamePoint = "4";
 
         var menuPoint = "";
 
@@ -26,6 +27,7 @@ public class App {
                 1 - Greet
                 2 - Even
                 3 - Calc
+                4 - GCD
                 0 - Exit
                 """;
 
@@ -35,7 +37,8 @@ public class App {
 
         if (menuPoint.equals(greetPoint)) {
             greetInterface();
-        } else if (menuPoint.equals(evenGamePoint) || menuPoint.equals(calcGamePoint)) {
+        } else if (menuPoint.equals(evenGamePoint) || menuPoint.equals(calcGamePoint) ||
+                menuPoint.equals(gCDGamePoint) ) {
             greetInterface();
             star(menuPoint);
         } else {

@@ -46,9 +46,8 @@ public class CalcGame implements Game {
             case "*" -> {
                 return String.valueOf(a * b);
             }
-            default -> {
-                throw new UnknownObjectException("Unknown Arithmetic Operation!");
-            }
+            default -> throw new UnknownObjectException("Unknown Arithmetic Operation!");
+
         }
     }
 
@@ -78,9 +77,8 @@ public class CalcGame implements Game {
             case 2 -> {
                 return "*";
             }
-            default -> {
-                throw new UnknownObjectException("Unknown Arithmetic Operation!");
-            }
+            default -> throw new UnknownObjectException("Unknown Arithmetic Operation!");
+
         }
     }
 }
