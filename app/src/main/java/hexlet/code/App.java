@@ -3,18 +3,14 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class App {
-    private String name;
-    private final Scanner sc = new Scanner(System.in);
+    private static String name;
+    private static final Scanner sc = new Scanner(System.in);
 
-    public String getName() {
-        return name;
-    }
-
-    void main(String[] args) {
+    public static void main(String[] args) {
         startGame();
     }
 
-    private void startGame() {
+    private static void startGame() {
         var greetPoint = "1";
         var evenGamePoint = "2";
         var calcGamePoint = "3";
@@ -51,7 +47,7 @@ public class App {
         }
     }
 
-    private void greetInterface() {
+    public static void greetInterface() {
         var startMenu = """
                 Welcome to the Brain Games!
                 May I have your name?
@@ -61,10 +57,10 @@ public class App {
 
         name = sc.next();
 
-        System.out.println("Hello, " + getName() + "!");
+        System.out.println("Hello, " + name + "!");
     }
 
-    private void star(String menuPoint) {
+    private static void star(String menuPoint) {
         var engine = new Engine(sc, name, menuPoint);
 
         engine.startGame();
