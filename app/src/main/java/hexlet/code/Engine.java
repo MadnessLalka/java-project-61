@@ -59,6 +59,7 @@ public class Engine {
             case "3" -> new CalcGame();
             case "4" -> new GCDGame();
             case "5" -> new ProgressionGame();
+            case "6" -> new PrimeGame();
             default -> throw new UnknownObjectException("Unknown Game!");
         };
 

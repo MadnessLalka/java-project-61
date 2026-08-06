@@ -12,3 +12,6 @@
 
 ### Progressive Pic
 ![img2.png](img2.png)
+
+### Prime Pic
+![img3.png](img3.png)

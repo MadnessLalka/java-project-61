@@ -20,6 +20,7 @@ public class App {
         var calcGamePoint = "3";
         var gCDGamePoint = "4";
         var progressiveGame = "5";
+        var primeGame = "6";
 
         var menuPoint = "";
 
@@ -30,6 +31,7 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progressive
+                6 - Prime
                 0 - Exit
                 """;
 
@@ -40,7 +42,8 @@ public class App {
         if (menuPoint.equals(greetPoint)) {
             greetInterface();
         } else if (menuPoint.equals(evenGamePoint) || menuPoint.equals(calcGamePoint) ||
-                menuPoint.equals(gCDGamePoint) || menuPoint.equals(progressiveGame)) {
+                menuPoint.equals(gCDGamePoint) || menuPoint.equals(progressiveGame) ||
+                menuPoint.equals(primeGame)) {
             greetInterface();
             star(menuPoint);
         } else {
