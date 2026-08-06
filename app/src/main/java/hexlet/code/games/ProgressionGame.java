@@ -41,7 +41,7 @@ public class ProgressionGame implements Game {
             var randNumber = randomNumberStart + i * randStep;
 
             if (i == randIndex) {
-                progression.append(" ").append("...");
+                progression.append(" ").append("..");
             } else {
                 progression.append(" ").append(randNumber);
             }
