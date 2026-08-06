@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCDGame;
-import hexlet.code.games.Game;
+import hexlet.code.games.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -61,6 +58,7 @@ public class Engine {
             case "2" -> new EvenGame();
             case "3" -> new CalcGame();
             case "4" -> new GCDGame();
+            case "5" -> new ProgressionGame();
             default -> throw new UnknownObjectException("Unknown Game!");
         };
 
